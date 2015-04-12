@@ -1,9 +1,10 @@
 class Cake
 
-  attr_accessor :filling, :topping
-  attr_accessor:flavour
+  attr_accessor :filling, :topping, :flavour
+  attr_reader:ingredients
 
-   def initialize(filling,topping,flavour)
+   def initialize(ingredients,filling,topping,flavour)
+    @ingredients = ingredients
     @filling = filling
     @topping = topping
     @flavour = flavour
@@ -34,11 +35,12 @@ class Cake
 end
 
 
-baked = Cake.new("strawberries", "chocholate sprinkles", "vanilla")
+baked = Cake.new(["egg" ,"flour", "sugar", "baking powder", "milk"], "strawberries", "chocholate sprinkles", "vanilla")
 flavo = baked.flavour
 topp = baked.topping
 fill = baked.filling
 puts "I would like a #{baked.flavour} cake, filled with #{fill} and covered in #{topp}!"
+puts "The ingredients of the cake are: #{baked.ingredients.join(", ")}"
 
 baked.topping = "whipcream"
 baked.flavour = "chocholate"
